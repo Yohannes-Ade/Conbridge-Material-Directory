@@ -4,14 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ethiopian Construction Supplier Directory</title>
-  
-  <!-- Official Telegram Web App JavaScript SDK -->
+  <!-- Telegram Web App SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  
-  <!-- Tailwind CSS CDN for Modern Responsive Styling -->
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Elegant Display Font -->
+  <!-- Custom Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -21,7 +18,7 @@
 </head>
 <body class="bg-[var(--tg-theme-bg-color,#f3f4f6)] text-[var(--tg-theme-text-color,#1f2937)] transition-colors duration-200">
 
-  <!-- Responsive Navigation Tabs -->
+  <!-- Floating Navigation Header -->
   <nav class="sticky top-0 z-50 bg-[var(--tg-theme-secondary-bg-color,#ffffff)] shadow-sm border-b border-gray-200/50 flex justify-around py-3 px-4">
     <button id="tab-dir" onclick="switchTab('directory')" class="flex flex-col items-center flex-1 py-1 font-medium text-xs text-blue-600 border-b-2 border-blue-600 transition-all duration-150">
       <span class="text-lg leading-none mb-1">🔍</span>
@@ -35,9 +32,9 @@
 
   <main class="max-w-md mx-auto p-4 pb-20">
     
-    <!-- Brand Header -->
+    <!-- BRAND HEADER -->
     <div class="text-center my-4">
-      <h1 class="text-xl font-bold tracking-tight text-gray-950">Addis Construction Directory</h1>
+      <h1 class="text-xl font-bold tracking-tight text-gray-900">Conbridge Construction Material</h1>
       <p class="text-xs text-gray-500 mt-1">Ethiopian Construction Material Directory & Catalogues</p>
     </div>
 
@@ -48,7 +45,7 @@
         <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider">Search Suppliers</label>
         <div class="relative">
           <input type="text" id="dir-search" oninput="filterSuppliers()" placeholder="Search rebar, cement, tile, locations..." 
-            class="w-full bg-gray-50 border border-gray-250/50 rounded-lg py-2.5 pl-9 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            class="w-full bg-gray-50 border border-gray-200 rounded-lg py-2.5 pl-9 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
           <span class="absolute left-3 top-3 text-gray-400 text-sm">🔍</span>
         </div>
 
@@ -82,7 +79,7 @@
 
       <!-- Suppliers List -->
       <div id="dir-list" class="space-y-4">
-        <!-- Default Fallback Wholesalers -->
+        <!-- Static Demo Data (Will be dynamically fetched or populated) -->
         <div class="bg-[var(--tg-theme-secondary-bg-color,#ffffff)] rounded-xl p-4 shadow-sm border border-gray-100/50 space-y-3">
           <div class="flex justify-between items-start">
             <div>
@@ -92,7 +89,7 @@
             </div>
             <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2 py-1 rounded">📍 Merkato</span>
           </div>
-          <div class="border-t border-dashed border-gray-105 pt-3">
+          <div class="border-t border-dashed border-gray-100 pt-3">
             <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Featured Products:</h3>
             <div class="grid grid-cols-1 gap-2 text-xs">
               <div class="flex justify-between bg-gray-50/50 p-2 rounded">
@@ -106,14 +103,14 @@
             </div>
           </div>
           <div class="flex gap-2 pt-2">
-            <span class="text-[11px] text-gray-500 flex-1">📦 MOQ: 100 Bags • 🚛 Delivery: Yes</span>
+            <span class="text-xs text-gray-500 flex-1">📦 MOQ: 100 Bags • 🚛 Delivery: Yes</span>
             <a href="https://t.me/kebede_cement" target="_blank" class="bg-blue-600 text-white rounded-lg px-4 py-1.5 text-xs font-semibold text-center hover:bg-blue-700 transition">Telegram Contact</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- REGISTER TAB VIEW -->
+    <!-- REGISTER VIEW -->
     <section id="view-register" class="hidden space-y-4">
       <div class="bg-[var(--tg-theme-secondary-bg-color,#ffffff)] rounded-xl p-5 shadow-sm border border-gray-100/50">
         <h2 class="text-lg font-bold text-gray-800 mb-1">Supplier Registration</h2>
@@ -123,7 +120,7 @@
           <!-- Business Name -->
           <div>
             <label class="block text-xs font-semibold text-gray-600 uppercase tracking-wider mb-1">Business Name *</label>
-            <input type="text" id="reg-biz-name" required placeholder="e.g. Addis Rebar & Steel Traders" 
+            <input type="text" id="reg-biz-name" required placeholder="e.g. Conbridge Rebar & Steel Traders" 
               class="w-full bg-gray-50 border border-gray-200 rounded-lg py-2 px-3 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
           </div>
 
@@ -151,9 +148,9 @@
             </div>
           </div>
 
-          <!-- Location Dropdown -->
+          <!-- Location -->
           <div>
-            <label class="block text-xs font-semibold text-gray-600 uppercase tracking-wider mb-1">Addis Ababa Area/Branch *</label>
+            <label class="block text-xs font-semibold text-gray-600 uppercase tracking-wider mb-1">Conbridge Trading Area/Branch *</label>
             <select id="reg-location" required 
               class="w-full bg-gray-50 border border-gray-200 rounded-lg py-2 px-3 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
               <option value="">Choose Area</option>
@@ -168,7 +165,7 @@
             </select>
           </div>
 
-          <!-- Categories Checkboxes -->
+          <!-- Categories (Multi-select) -->
           <div>
             <label class="block text-xs font-semibold text-gray-600 uppercase tracking-wider mb-2">Product Categories (Select All That Apply) *</label>
             <div class="grid grid-cols-2 gap-2 text-xs">
@@ -215,19 +212,19 @@
             </div>
           </div>
 
-          <!-- Product Specification row 1 -->
+          <!-- Product 1 -->
           <div class="border-t border-gray-100 pt-4">
             <h3 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Top Product #1</h3>
             <div class="grid grid-cols-1 gap-2.5">
               <input type="text" id="prod1-name" required placeholder="Product Name (e.g. Derba Cement PPC)" class="w-full bg-gray-50 border border-gray-200 rounded-lg py-1.5 px-3 text-xs focus:ring-2 focus:ring-blue-500 focus:outline-none">
               <div class="grid grid-cols-2 gap-2">
-                <input type="text" id="prod1-spec" placeholder="Specification (e.g. 50Kg)" class="w-full bg-gray-50 border border-gray-200 rounded-lg py-1.5 px-3 text-xs focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                <input type="text" id="prod1-price" required placeholder="Price/unit (e.g. 620 ETB)" class="w-full bg-gray-50 border border-gray-200 rounded-lg py-1.5 px-3 text-xs focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                <input type="text" id="prod1-spec" placeholder="Specification (e.g. 50Kg Bag)" class="w-full bg-gray-50 border border-gray-200 rounded-lg py-1.5 px-3 text-xs focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                <input type="text" id="prod1-price" required placeholder="Price per unit (e.g. 620 ETB)" class="w-full bg-gray-50 border border-gray-200 rounded-lg py-1.5 px-3 text-xs focus:ring-2 focus:ring-blue-500 focus:outline-none">
               </div>
             </div>
           </div>
 
-          <!-- Product Specification row 2 -->
+          <!-- Product 2 -->
           <div class="border-t border-gray-100 pt-4">
             <h3 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Top Product #2 (Optional)</h3>
             <div class="grid grid-cols-1 gap-2.5">
@@ -242,8 +239,8 @@
           <!-- MOQ & Delivery -->
           <div class="border-t border-gray-100 pt-4 grid grid-cols-2 gap-3 pb-2">
             <div>
-              <label class="block text-xs font-semibold text-gray-600 uppercase tracking-wider mb-1">Minimum Order Qty *</label>
-              <input type="text" id="reg-moq" required placeholder="e.g., 100 bags" 
+              <label class="block text-xs font-semibold text-gray-600 uppercase tracking-wider mb-1">MOQ *</label>
+              <input type="text" id="reg-moq" required placeholder="e.g., 100 bags / 5 tons" 
                 class="w-full bg-gray-50 border border-gray-200 rounded-lg py-2 px-3 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
             </div>
             <div>
@@ -257,9 +254,9 @@
             </div>
           </div>
 
-          <!-- Catalog shop Photo link -->
+          <!-- Photo upload mock (base64 or reference URL) -->
           <div>
-            <label class="block text-xs font-semibold text-gray-600 uppercase tracking-wider mb-1">Catalogue Photo Link (Optional)</label>
+            <label class="block text-xs font-semibold text-gray-600 uppercase tracking-wider mb-1">Store / Catalogue Photo Link (Optional)</label>
             <input type="url" id="reg-photo-url" placeholder="Paste an image URL" 
               class="w-full bg-gray-50 border border-gray-200 rounded-lg py-2 px-3 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
           </div>
@@ -270,11 +267,11 @@
           </button>
         </form>
 
-        <!-- Dynamic Success Window -->
+        <!-- Dynamic Success message -->
         <div id="form-success" class="hidden text-center justify-center p-6 space-y-4">
           <div class="text-4xl">🎉</div>
           <h3 class="text-base font-bold text-gray-800">Registration Complete!</h3>
-          <p class="text-xs text-gray-500 leading-relaxed">Thank you! Your construction supplier business has been registered successfully. The details are synced with our Google Sheet backend.</p>
+          <p class="text-xs text-gray-500 leading-relaxed">Thank you! Your construction supplier business has been registered successfully. The catalogue details were posted directly to our Google Sheet backend.</p>
           <button onclick="resetForm()" class="bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg font-semibold text-xs px-4 py-2 transition">
             Submit Another Store
           </button>
@@ -284,8 +281,9 @@
 
   </main>
 
+  <!-- Script logic -->
   <script>
-    // Local memory state for instant search querying
+    // State Initialization
     let suppliersData = [
       {
         id: "1",
@@ -305,7 +303,7 @@
       },
       {
         id: "2",
-        businessName: "Addis Rebar & Steel Traders",
+        businessName: "Conbridge Rebar & Steel Traders",
         contactName: "Yohannes Hailu",
         phone: "0912334455",
         telegramUsername: "yohan_steel",
@@ -318,15 +316,31 @@
         minOrder: "1 Ton",
         delivery: "Yes",
         photoUrl: ""
+      },
+      {
+        id: "3",
+        businessName: "Lideta Sanitary & Plumbing",
+        contactName: "Abebech Kassa",
+        phone: "0920445566",
+        telegramUsername: "abebech_plumbing",
+        location: "Lideta",
+        categories: ["Sanitary", "Tiles"],
+        products: [
+          { name: "Porcelain floor tiles", spec: "60x60cm Spanish", price: "1850 ETB/sqm" }
+        ],
+        minOrder: "20 Sqm",
+        delivery: "Negotiable",
+        photoUrl: ""
       }
     ];
 
-    // Read web parameters and initialize Telegram container WebApp
+    // Web App SDK initialization
     let telegramUser = null;
     if (window.Telegram && window.Telegram.WebApp) {
       window.Telegram.WebApp.ready();
       window.Telegram.WebApp.expand();
       
+      // Handle automatic Telegram theme options
       const themeParams = window.Telegram.WebApp.themeParams;
       if (themeParams && themeParams.text_color) {
         document.documentElement.style.setProperty('--tg-theme-bg-color', themeParams.bg_color);
@@ -336,7 +350,7 @@
       telegramUser = window.Telegram.WebApp.initDataUnsafe?.user;
     }
 
-    // Toggle active interface tab channels
+    // Tab Switching
     function switchTab(tab) {
       const tabDir = document.getElementById('tab-dir');
       const tabReg = document.getElementById('tab-reg');
@@ -356,11 +370,12 @@
       }
     }
 
-    // Connects to Google App Script inside Step 3
+    // Google Sheets Integration
     const GOOGLE_SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
 
     async function fetchLatestData() {
       if (GOOGLE_SCRIPT_URL.includes("GOOGLE_SCRIPT_URL") || GOOGLE_SCRIPT_URL.includes("YOUR")) {
+        console.log("Using Mock data as Apps Script URL is empty.");
         renderSuppliers(suppliersData);
         return;
       }
@@ -376,12 +391,11 @@
           renderSuppliers(suppliersData);
         }
       } catch (err) {
-        console.error("Error fetching Sheets data:", err);
-        renderSuppliers(suppliersData);
+        console.error("Error fetching sheets data:", err);
+        renderSuppliers(suppliersData); // Fallback to local
       }
     }
 
-    // Dynamically draw catalogue cards in view
     function renderSuppliers(data) {
       const listContainer = document.getElementById('dir-list');
       const countLabel = document.getElementById('dir-results-count');
@@ -448,7 +462,6 @@
       });
     }
 
-    // Material tag filter mechanism
     function filterSuppliers() {
       const query = document.getElementById('dir-search').value.toLowerCase();
       const catCheck = document.getElementById('dir-category-filter').value;
@@ -466,7 +479,6 @@
       renderSuppliers(filtered);
     }
 
-    // Form registration submit pipeline
     async function handleFormSubmit(event) {
       event.preventDefault();
       
@@ -474,6 +486,7 @@
       submitBtn.innerText = "Saving Supplier Card...";
       submitBtn.disabled = true;
 
+      // Extract form variables
       const businessName = document.getElementById('reg-biz-name').value;
       const contactName = document.getElementById('reg-contact-name').value;
       const phone = document.getElementById('reg-phone').value;
@@ -483,17 +496,19 @@
       const delivery = document.getElementById('reg-delivery').value;
       const photoUrl = document.getElementById('reg-photo-url').value;
 
+      // Category extraction list
       const categoryCheckboxes = document.querySelectorAll('input[name="category"]:checked');
       const categories = [];
       categoryCheckboxes.forEach(cb => categories.push(cb.value));
 
       if (categories.length === 0) {
         alert("Please pick at least one product category!");
-        submitBtn.innerText = "Register Business";
+        submitBtn.innerText = "Register Business & Create Card";
         submitBtn.disabled = false;
         return;
       }
 
+      // Top products array
       const products = [];
       if (document.getElementById('prod1-name').value) {
         products.push({
@@ -525,23 +540,23 @@
         registeredAt: new Date().toISOString()
       };
 
-      // Sends backend JSON record to Apps Script
+      // If Google Script URL exists, send request
       if (!GOOGLE_SCRIPT_URL.includes("GOOGLE_SCRIPT_URL") && !GOOGLE_SCRIPT_URL.includes("YOUR")) {
         try {
           await fetch(GOOGLE_SCRIPT_URL, {
             method: "POST",
-            mode: "no-cors",
+            mode: "no-cors", // Crucial for standalone Apps Script post submission
             headers: {
               "Content-Type": "application/json"
             },
             body: JSON.stringify(newSupplier)
           });
         } catch (err) {
-          console.warn("Sheets request submitted:", err);
+          console.warn("Sheets network warning/mode-no-cors expected behavior:", err);
         }
       }
 
-      // Prepend to current offline fallback and re-render
+      // Add to local state and reset layout
       suppliersData.unshift({
         id: String(Date.now()),
         businessName,
@@ -556,6 +571,7 @@
         photoUrl
       });
 
+      // Show Telegram alert if Telegram client available
       if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.showAlert) {
         window.Telegram.WebApp.showAlert("Business Registered Successfully! Catalogue card created.");
       }
@@ -575,7 +591,7 @@
       submitBtn.disabled = false;
     }
 
-    // Render init
+    // Initial load
     renderSuppliers(suppliersData);
   </script>
 </body>
