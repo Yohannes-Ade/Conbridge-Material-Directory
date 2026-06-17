@@ -32,6 +32,17 @@
 
   <main class="max-w-md mx-auto p-4 pb-20">
     
+    <!-- URL Configuration Warning notice -->
+    <div id="setup-warning" class="hidden bg-amber-50 border border-amber-200 rounded-xl p-4 text-xs text-amber-800 space-y-1.5 mb-4">
+      <div class="font-bold flex items-center gap-1">⚠️ Demo Mode Active (Google Sheets Not Synced)</div>
+      <p class="leading-relaxed">Your real Telegram WebApp is loading but hasn't received your Google Sheets live backend address. To fix this:</p>
+      <ol class="list-decimal pl-4 space-y-1 font-semibold text-amber-900">
+        <li>Open the builder sidebar of this developer panel.</li>
+        <li>Paste your real Google Apps Script web app URL.</li>
+        <li>Copy this updated HTML and replace your repository's <code>index.html</code> code.</li>
+      </ol>
+    </div>
+    
     <!-- BRAND HEADER -->
     <div class="text-center my-4">
       <h1 class="text-xl font-bold tracking-tight text-gray-900">Conbridge Construction Material</h1>
@@ -371,13 +382,18 @@
     }
 
     // Google Sheets Integration
-    const GOOGLE_SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyCJ205BtkEc2IZ43eg3IwPGPC1DxrkDVX7C8r9o0e75wmHcKDtf7Ptz6r2kdZL_nM/exec";
 
     async function fetchLatestData() {
       if (GOOGLE_SCRIPT_URL.includes("GOOGLE_SCRIPT_URL") || GOOGLE_SCRIPT_URL.includes("YOUR")) {
+        const warningEl = document.getElementById('setup-warning');
+        if (warningEl) warningEl.classList.remove('hidden');
         console.log("Using Mock data as Apps Script URL is empty.");
         renderSuppliers(suppliersData);
         return;
+      } else {
+        const warningEl = document.getElementById('setup-warning');
+        if (warningEl) warningEl.classList.add('hidden');
       }
 
       document.getElementById('dir-results-count').innerText = "Loading from Sheets...";
