@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Conbridge - Telegram Multi-Channel Developer Workspace & Mini App Builder</title>
+    
+    <!-- Preconnect for Rapid Asset Delivery -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Unified Display & Interface Fonts: Space Grotesk, Inter, and Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Telegram Web App SDK -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <!-- Auto-init and developer tools for the Telegram WebApp environment integration -->
+    <script>
+      try {
+        if (window.Telegram && window.Telegram.WebApp) {
+          const webApp = window.Telegram.WebApp;
+          webApp.ready();
+          webApp.expand();
+          console.log("🚀 [Conbridge Workspace] Telegram WebApp SDK loaded successfully. Version:", webApp.version);
+          
+          // Configure background and header colors from the Telegram theme dynamically
+          if (webApp.setHeaderColor) {
+            webApp.setHeaderColor(webApp.themeParams.secondary_bg_color || '#17212b');
+          }
+          if (webApp.setBackgroundColor) {
+            webApp.setBackgroundColor(webApp.themeParams.bg_color || '#0e1621');
+          }
+        }
+      } catch (e) {
+        console.warn("⚠️ [Conbridge Workspace] Failed to initialize native Telegram SDK bindings:", e);
+      }
+    </script>
+  </head>
+  <body class="bg-[var(--tg-theme-bg-color,#0e1621)] text-[var(--tg-theme-text-color,#1f2937)] font-sans antialiased h-full select-none overflow-x-hidden text-slate-900 dark:text-white">
+    <div id="root" class="h-full"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
