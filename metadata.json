@@ -1,6 +1,0 @@
-{
-  "name": "Ethiopian Construction Supplier Directory",
-  "description": "Telegram Mini App, Bot, and Channel Companion Builder for Ethiopian Construction Suppliers",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
