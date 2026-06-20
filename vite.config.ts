@@ -3,8 +3,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // base: './' makes all import paths relative so it works perfectly on GitHub Pages subdirectories
-  base: './', 
+  base: './', // Ensures assets load relatively on GitHub Pages
   plugins: [
     react()
   ],
