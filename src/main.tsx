@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+import App from './App' // Changed from './App.tsx' to prevent strict bundler CI compilation errors
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
